@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../vue.js"></script>
+    <title>简写指令</title>
+</head>
+<body >
+<div id="example">
+    <h1>两个缩写指令：v-on和v-bind</h1>
+    <h3>v-bind的缩写</h3>
+    <!-- 完整语法 -->
+    <a v-bind:href="url">点一下，有你想看的</a>
+    <!-- 缩写 -->
+    <a :href="url">点一下，你就知道了</a><br>
+
+    <h3>v-on的缩写</h3>
+    <!-- 完整语法 -->
+    <a v-on:click="doSomething">{{url}}</a><br>
+    <!-- 缩写 -->
+    <a @click="doSomething">{{url}}</a>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            url:'https://www.baidu.com/',
+
+        },
+        methods: {
+            doSomething:function(){
+                this.url="要放假了，你回去吗"
+            }
+        }
+    })
+</script>
+</body>
+</html>

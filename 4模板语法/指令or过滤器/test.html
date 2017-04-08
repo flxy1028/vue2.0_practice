@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../vue.js"></script>
+    <title>指令</title>
+</head>
+<body>
+<div id='example'>
+    <!--v-if指令将根据表达式 seen 的值的真假来移除/插入 <p> 元素-->
+    <p v-if="seen">Now you see me</p>
+
+    <!--参数：一些指令能接受一个“参数”，在指令后以冒号指明。
+    例如， v-bind 指令被用来响应地更新 HTML 属性：-->
+    <a v-bind:href="url">百度一下，你就知道</a>
+
+    <!--修饰符（Modifiers）是以半角句号 . 指明的特殊后缀，
+    用于指出一个指令应该以特殊方式绑定。-->
+    <form v-on:submit.prevent="onSubmit"></form>
+
+    <!--过滤器:mustache 插值和 v-bind 表达式。
+    过滤器应该被添加在 JavaScript 表达式的尾部，由“管道”符指示-->
+    {{ message | capitalizeA }}
+    <div v-bind:id="rawId | capitalizeB"></div>
+    <!--过滤器可以串联;过滤器是 JavaScript 函数，因此可以接受参数-->
+    {{ message | capitalizeA | capitalizeB }};
+    <!--这里，字符串 'arg1' 将传给过滤器作为第二个参数，
+     arg2 表达式的值将被求值然后传给过滤器作为第三个参数。-->
+    <!--{{ message | filterA('arg1', arg2) }}-->
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            seen:true,
+            url:'https://www.baidu.com/',
+            message:'you change',
+            rawId:'fangdemo'
+        },
+        filters: {//自定义过滤器写法
+            capitalizeA: function (value) {
+                if (!value) return '';
+                value = value.toString()
+                return value.charAt(0).toUpperCase() + value.slice(1)
+            },
+            capitalizeB:function(value){
+                if (!value) return '';
+                value = value.toString();
+                return  value.slice(0,-1) + value.charAt(value.length-1).toUpperCase()
+            }
+        }
+    })
+</script>
+</html>
