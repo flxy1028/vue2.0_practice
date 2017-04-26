@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../vue.js"></script>
+    <title>计算方法</title>
+</head>
+<body >
+<ul id="example-1">
+  <li v-for="n in numbers">{{ n }}</li>
+  <!-- <li v-for="n in even(numbers)">{{ n }}</li> -->
+  <button style="padding: 4px 8px" v-on:click="fang"></button>
+</ul>
+</body>
+<script>
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    numbers: [ 1, 2, 3, 4, 5 ]
+  },
+  methods: {
+    fang: function () {
+      return this.numbers.push("陈sx")
+    }
+  }
+})
+</script>
+</html>

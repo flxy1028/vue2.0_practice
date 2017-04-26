@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../vue.js"></script>
+    <title>计算方法</title>
+</head>
+<body >
+<div id="example">
+1\单行文本
+<input v-model="message" placeholder="edit me">
+<p>Message is: {{ message }}</p>
+2/多行文本
+<span>Multiline message is:</span>
+<p style="white-space: pre">{{ messag }}</p>
+<br>
+<textarea v-model="messag" placeholder="add multiple lines"></textarea>
+3、单选
+
+<input type="checkbox" id="checkbox" v-model="checked">
+<label for="checkbox">{{ checked }}</label>
+
+4、
+<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+<label for="jack">Jack</label>
+<input type="checkbox" id="john" value="John" v-model="checkedNames">
+<label for="john">John</label>
+<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+<label for="mike">Mike</label>
+<br>
+<span>Checked names: {{ checkedNames }}</span>
+</div>
+</body>
+<script>
+new Vue({
+  el: '#example',
+  data: {
+    checkedNames: [],
+    message:null,
+    messag: null,
+    checked:null
+  }
+})
+</script>
+</html>

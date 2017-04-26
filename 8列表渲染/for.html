@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../vue.js"></script>
+    <title>计算方法</title>
+</head>
+<body >
+<ul id="example-1">
+<li v-for="value in items">
+ {{value}}
+  </li><br>
+  <li v-for="(value, index) in items">
+ {{value}}  ++++ {{index}}
+  </li><br>
+   <li v-for="(value,index,key) in items">
+  {{value}}=={{index}}=={{key}}
+  </li><br>
+
+  <div>
+  <span v-for="n in 10">{{ n }}<br></span>
+</div>
+
+<ul>
+    <li v-for="value in items">{{value}}</li>
+  </ul>
+
+</ul>
+
+<!-- 
+<div id="todo-list-example">
+  <input
+    v-model="newTodoText"
+    v-on:keyup.enter="addNewTodo"
+    placeholder="Add a todo"
+  >
+  
+  <ul>
+    <a
+      is="todo-item"
+      v-for="(todo, index) in todos"
+      v-bind:title="todo"
+      v-on:remove="todos.splice(index, 1)"
+    ></a>
+  </ul>
+
+  <br>
+  <li v-for="todo in todos" v-if="!todo.isComplete">
+  {{ todo }}
+</li>
+<!-- 重塑数组 -->
+ <!-- <ul>
+    <li v-for="value in items">{{value.message}}</li>
+  </ul> --> -->
+<!-- </div> -->
+
+ 
+</body>
+<script>
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    parentMessage: 'Parent',
+    items: [
+      {message: 'Foo' },
+      {message: 'Bar' },
+      {message: 'Bar' },
+      {message: 'Bar' }
+    ]
+  }
+})
+// Vue.component('todo-item', {
+//   template: '\
+//     <li>\
+//       {{ title }}\
+//       <button v-on:click="$emit(\'remove\')">X</button>\
+//     </li>\
+//   ',
+//   props: ['title']
+// })
+// new Vue({
+//   el: '#todo-list-example',
+//   data: {
+//     newTodoText: '',
+//     todos: [
+//       'Do the dishes',
+//       'Take out the trash',
+//       'Mow the lawn'
+//     ]
+//   },
+//   methods: {
+//     addNewTodo: function () {
+//       this.todos.push(this.newTodoText)
+//       this.newTodoText = ''
+//     }
+//   }
+// })
+</script>
+</html>

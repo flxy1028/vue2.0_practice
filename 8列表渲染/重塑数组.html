@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../vue.js"></script>
+    <title>计算方法</title>
+</head>
+<body >
+<ul id="example-1">
+  <li v-for="n in evenNumbers">{{ n }}</li>
+  <!-- <li v-for="n in even(numbers)">{{ n }}</li> -->
+</ul>
+
+
+</body>
+<script>
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    numbers: [ 'ad', 'sdf', 'saf', 'wew4', 'rw' ]
+  },
+  computed: {
+    evenNumbers: function () {
+      return this.numbers.filter(function (item) {
+          return item.match(/ad/)
+      })
+    }
+  }
+})
+</script>
+</html>
